@@ -1,9 +1,10 @@
 {
   "expo": {
-    "name": "diritto-commerciale",
+    "name": "Commerciale · Quiz e ripasso",
     "slug": "diritto-commerciale",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
+    "scheme": "commerciale",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
@@ -11,15 +12,21 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#365C46",
         "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single",
+      "name": "Commerciale · Quiz e ripasso",
+      "description": "450 domande di diritto commerciale. Studia per capitolo e allenati con simulazioni d’esame."
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

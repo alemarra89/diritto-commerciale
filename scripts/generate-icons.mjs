@@ -1,0 +1,12 @@
+import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+const require = process.argv[2] ? createRequire(resolve(process.argv[2], 'package.json')) : createRequire(import.meta.url);
+const sharp = require('sharp');
+const svg = readFileSync(new URL('../assets/brand.svg', import.meta.url), 'utf8');
+const transparent = svg.replace('<rect width="1024" height="1024" fill="#365C46"/>', '');
+await sharp(Buffer.from(svg)).png().toFile('assets/icon.png');
+await sharp(Buffer.from(svg)).resize(64, 64).png().toFile('assets/favicon.png');
+await sharp(Buffer.from(transparent)).png().toFile('assets/android-icon-foreground.png');
+await sharp(Buffer.from(transparent.replaceAll('#F8F7F3', '#FFFFFF'))).png().toFile('assets/android-icon-monochrome.png');
+console.log('Icone dell’app generate dal marchio SVG.');
